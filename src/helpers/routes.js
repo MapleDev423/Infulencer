@@ -30,10 +30,10 @@ const routes = [
         name:'Gift',
         icon:<FavoriteBorderIcon></FavoriteBorderIcon>
     },
-    {
-        path:'/test',
-        name:'Test',
-        icon:<FavoriteBorderIcon></FavoriteBorderIcon>
-    },
+    // {
+    //     path:'/test',
+    //     name:'Test',
+    //     icon:<FavoriteBorderIcon></FavoriteBorderIcon>
+    // },
 ]
 export default routes

@@ -10,12 +10,20 @@ import {
     IconButton,
     Menu,
     MenuItem,
+    Table,
+    TableBody ,
+    TableCell ,
+    TableContainer ,
+    TableHead ,
+    TableRow ,
+    Paper
 } from "@material-ui/core"
 import PageNavbarContent from '../../component/PageNavbarContent'
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Fade from '@material-ui/core/Fade';
+import {Line} from 'react-chartjs-2';
 
 const useStyles = makeStyles((theme)=>({
     rightPan:{
@@ -41,6 +49,15 @@ const useStyles = makeStyles((theme)=>({
             color:theme.palette.primary.dark
         }
     },
+    tablePart:{
+        marginTop:theme.spacing(5)
+    },
+    table: {
+        minWidth: 650,
+        '& thead':{
+            backgroundColor:'rgb(246,248,250)'
+        }
+    },
 }))
 const dateType = [
     {
@@ -53,6 +70,72 @@ const dateType = [
         text:'Last year',
     },
 ]
+const tableRows = [
+    {
+        order:1,
+        order_date:'04/03/2021',
+        order_total:12,
+        member:5,
+        code_link:'https://test.com',
+        commission:'commission',
+        payment:'$100.00'
+    },
+    {
+        order:2,
+        order_date:'02/07/2021',
+        order_total:12,
+        member:5,
+        code_link:'https://test.com',
+        commission:'commission',
+        payment:'$100.00'
+    },
+    {
+        order:3,
+        order_date:'04/03/2021',
+        order_total:12,
+        member:5,
+        code_link:'https://test.com',
+        commission:'commission',
+        payment:'$100.00'
+    },
+    {
+        order:4,
+        order_date:'04/03/2021',
+        order_total:12,
+        member:5,
+        code_link:'https://test.com',
+        commission:'commission',
+        payment:'$100.00'
+    },
+];
+const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July' , 'Aug' ,'Sep', 'Oct', 'Nov' , 'Dec'],
+    datasets: [
+      {
+        label: '',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'white',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth:2,
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: 'white',
+        pointBorderWidth: 2,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 6,
+        pointHitRadius: 10,
+        data: [65, 59, 80, 81, 56, 55, 60,88,53,54,86,54]
+      },
+      
+    ]
+  };
 const Affliate = () =>{
     const [currentTab,setCurrentTab] = useState(0)
     const [anchorEl, setAnchorEl] = useState(null);
@@ -166,32 +249,70 @@ const Affliate = () =>{
                                     <Grid container spacing={2}>
                                         <Grid item xs={6}>
                                             <div className={classes.affliateItem}>
-                                                <Typography variant="h5">165</Typography>
-                                                <Typography variant="subtitle">Followers</Typography>
+                                                <Typography variant="h5">$0.00</Typography>
+                                                <Typography variant="subtitle">Total sales</Typography>
                                             </div>
                                         </Grid>
                                         <Grid item xs={6}>
                                             <div className={classes.affliateItem}>
-                                                <Typography variant="h5">165</Typography>
-                                                <Typography variant="subtitle">Followers</Typography>
+                                                <Typography variant="h5">$0.00</Typography>
+                                                <Typography variant="subtitle">Commission</Typography>
                                             </div>
                                         </Grid>
                                         <Grid item xs={6}>
                                             <div className={classes.affliateItem}>
-                                                <Typography variant="h5">165</Typography>
-                                                <Typography variant="subtitle">Followers</Typography>
+                                                <Typography variant="h5">$0.00</Typography>
+                                                <Typography variant="subtitle">Paid</Typography>
                                             </div>
                                         </Grid>
                                         <Grid item xs={6}>
                                             <div className={classes.affliateItem}>
-                                                <Typography variant="h5">165</Typography>
-                                                <Typography variant="subtitle">Followers</Typography>
+                                                <Typography variant="h5">$0.00</Typography>
+                                                <Typography variant="subtitle">Owed</Typography>
                                             </div>
                                         </Grid>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={6}>
-                                    
+                                    <Line data={data} />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <div className={classes.tablePart}>
+                                        <Typography>{tableRows.length} conversions</Typography>
+                                        <TableContainer component={Paper}>
+                                            <Table className={classes.table} aria-label="simple table">
+                                                <TableHead>
+                                                    <TableRow>
+                                                        <TableCell>ORDER</TableCell>
+                                                        <TableCell align="right">ORDER DATE</TableCell>
+                                                        <TableCell align="right">ORDER TOTAL</TableCell>
+                                                        <TableCell align="right">MEMBER</TableCell>
+                                                        <TableCell align="right">CODE/LINK</TableCell>
+                                                        <TableCell align="right">COMMISSION</TableCell>
+                                                        <TableCell align="right">PAYMENT</TableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                   
+                                                {tableRows.map((row) => (
+                                                    <TableRow key={row.order}>
+                                                    <TableCell align="left">{row.order}</TableCell>
+
+                                                    <TableCell align="right" component="th" scope="row">
+                                                        {row.order_date}
+                                                    </TableCell>
+                                                    <TableCell align="right">{row.order_total}</TableCell>
+                                                    <TableCell align="right">{row.member}</TableCell>
+                                                    <TableCell align="right">{row.code_link}</TableCell>
+                                                    <TableCell align="right">{row.commission}</TableCell>
+                                                    <TableCell align="right">{row.payment}</TableCell>
+
+                                                    </TableRow>
+                                                ))}
+                                                </TableBody>
+                                            </Table>
+                                        </TableContainer>
+                                    </div>
                                 </Grid>
                             </Grid>
                             
