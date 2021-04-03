@@ -26,9 +26,9 @@ const routes = [
 
     },
     {
-        path:'/settings',
-        name:'Settings',
-        icon:<SettingsIcon></SettingsIcon>
+        path:'/gift',
+        name:'Gift',
+        icon:<FavoriteBorderIcon></FavoriteBorderIcon>
     },
     {
         path:'/test',

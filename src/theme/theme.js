@@ -6,11 +6,11 @@ const theme = createMuiTheme({
     primary: {
       light:'#6a6a6a',
       main: deepPurple[500],
+      dark:'black'
     },
     secondary: {
-//      main:grey[700],
       main:'rgba(75,192,192,1)',
-
+      dark:'rgb(194,207,224)',
       contrastText: deepPurple[900],
     },
     third:{
@@ -82,10 +82,11 @@ theme.overrides = {
   },
   MuiInput: {
     root: {
-      top: theme.spacing(1),
+      //top: theme.spacing(1),
       borderRadius:'3px',
       border: `1px solid ${grey[400]}`,
       outline: `1px solid transparent`,
+      height:theme.spacing(4.5),
       padding: theme.spacing(1),
       '&$focused': {
         border: `1px solid ${theme.palette.primary.main}`,

@@ -50,6 +50,121 @@ const useStyles = makeStyles((theme)=>({
         width:theme.spacing(2),
         height:theme.spacing(2),
         marginRight:theme.spacing(2)
+    },
+    rightPan:{
+        padding:theme.spacing(3),
+        [theme.breakpoints.up('lg')]: {
+            display:'flex',   
+        },
+    },
+    actionBtnList:{
+        [theme.breakpoints.down('md')]: {
+            textAlign: '-webkit-center',
+            display:'flex',
+            marginBottom:theme.spacing(3)
+        },
+    },
+    actionBtn:{
+        width:theme.spacing(10),
+        height:theme.spacing(10),
+
+        borderRadius:'10px',
+        border:`5px solid ${theme.palette.secondary.dark}`,
+        textAlign:'center',
+      
+        cursor:'pointer',
+
+        '& :hover':{
+            //border:`5px solid ${theme.palette.primary.main}`,
+        },
+        marginBottom:theme.spacing(3),
+        padding:'10px 5px 5px 5px',
+        '& p':{
+            marginTop:'0px'
+        },
+        [theme.breakpoints.down('md')]: {
+            margin:theme.spacing(1)
+        },
+        '& .green':{
+            color:'rgb(104,212,145)'
+        },
+        '& .grey':{
+            color:theme.palette.secondary.dark
+        },
+        '& .blue':{
+            color:theme.palette.primary.main
+        },
+        '& .yellow':{
+            color:'rgb(241,153,73)'
+        },
+    },
+    avatar:{
+        width:theme.spacing(12),
+        height:theme.spacing(12),
+        marginRight:theme.spacing(3)
+    },
+    rightPanInfo:{
+        [theme.breakpoints.up('lg')]: {
+            marginLeft:theme.spacing(4),
+        }
+
+    },
+    rightpanInfoName:{
+        display:'flex',
+        placeItems:'center',
+        '& h5':{
+            color:theme.palette.primary.dark
+        }
+    },
+    imageBtn:{
+        width: '100px',
+        backgroundColor: 'rgb(246,248,250)',
+        textAlignLast: 'center',
+        borderRadius:'15px',
+        padding:theme.spacing(1),
+        cursor:'pointer',
+        '& p':{
+            padding:'0px'
+        },
+        '& span':{
+            color:theme.palette.primary.dark
+        }
+    },
+    rightPanRow:{
+        paddingTop:theme.spacing(2)
+    },
+    follerInfo:{
+        backgroundColor: 'rgb(246,248,250)',
+        borderRadius:'10px',
+        padding:theme.spacing(2),
+        textAlign:'center',
+        '& h5':{
+            color:theme.palette.primary.dark
+        }
+    },
+    imagePan:{
+        display:'flex',
+    },
+    imagePanItem:{
+        borderRadius:'10px',
+        width:theme.spacing(25),
+        height:theme.spacing(25),
+        backgroundColor:theme.palette.secondary.dark,
+        marginRight:theme.spacing(3)
+    },
+    messagePan:{
+        backgroundColor:'rgb(246,248,250)',
+        padding:theme.spacing(3),
+        borderRadius:'10px'
+    },
+    messageItem:{
+        marginBottom:theme.spacing(2)
+    },
+    messageQ:{
+        color:'black',
+    },
+    messageA:{
+        color:theme.palette.secondary.dark,
     }
 }))
 
@@ -164,7 +279,119 @@ const Application = () =>{
             <Grid item xs={12} sm={12} md={9}>
                 <Card>
                     <CardContent>
-                        ANCD
+                        <div className={classes.rightPan}>
+                            <div className={classes.actionBtnList}>
+                            
+                                <div className={classes.actionBtn}>
+                                    <Typography variant="subtitle1" className={'green'}>
+                                        <CheckOutlinedIcon/>
+                                        <p>Approve</p>
+                                    </Typography>
+                                    
+                                </div>
+                                <div className={classes.actionBtn}>
+                                <Typography variant="subtitle1" className={'grey'}>
+                                        <HelpOutlineOutlinedIcon/>
+                                        <p>May be</p>
+                                    </Typography>
+                                </div>
+                                <div className={classes.actionBtn}>
+                                <Typography variant="subtitle1" className={'blue'}>
+                                        <StarBorderIcon/>
+                                        <p>Interested</p>
+                                    </Typography>
+                                </div>
+                                <div className={classes.actionBtn}>
+                                    <Typography variant="subtitle1" className={'yellow'}>
+                                        <CloseOutlinedIcon/>
+                                        <p>Reject</p>
+                                    </Typography>
+                                </div>
+                            </div>
+                            <Grid container className={classes.rightPanInfo}>
+                                <Grid item xs={12} className={classes.rightPanRow}>
+                                    <div className={classes.rightpanInfoName}>
+                                        <Avatar alt="Remy Sharp" src="/1.jpg" className={classes.avatar} />
+                                        <Typography variant="h5">Ceno Pant</Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} className={classes.rightPanRow}>
+                                    <div className={classes.imageBtn}>
+                                        <Typography variant="subtitle">cenopant</Typography>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} className={classes.rightPanRow}>
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={4} >
+                                            <div className={classes.follerInfo}>
+                                                <Typography variant="h5">165</Typography>
+                                                <Typography variant="subtitle">Followers</Typography>
+                                            </div>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <div className={classes.follerInfo}>
+                                                <Typography variant="h5">70</Typography>
+                                                <Typography variant="subtitle">Avg.Likes</Typography>
+                                            </div>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <div className={classes.follerInfo}>
+                                                <Typography variant="h5">53.52%</Typography>
+                                                <Typography variant="subtitle">Engagement</Typography>
+                                            </div>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid item xs={12} className={classes.rightPanRow}>
+                                    <div className={classes.imagePan}>
+                                        <div className={classes.imagePanItem}>
+                                        </div>
+                                        <div className={classes.imagePanItem}>
+                                        </div>
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} className={classes.rightPanRow}>
+                                    <div className={classes.messagePan}>
+                                        <div className={classes.messageItem}>
+                                        
+                                            <Typography className={classes.messageA}>
+                                                Applied on Mar 29 2021
+                                            </Typography>
+                                        </div>
+                                        <div className={classes.messageItem}>
+                                            <Typography className={classes.messageQ}>
+                                                ceno@mileagency.com
+                                            </Typography>
+                                        </div>
+                                        <div className={classes.messageItem}>
+                                            <Typography className={classes.messageQ}>
+                                                Have you made a purchase from us before?
+                                            </Typography>
+                                            <Typography className={classes.messageA}>
+                                                Yes
+                                            </Typography>
+                                        </div>
+                                        <div className={classes.messageItem}>
+                                            <Typography className={classes.messageQ}>
+                                                If you have purchased from us before, what did you love about the product?
+                                            </Typography>
+                                            <Typography className={classes.messageA}>
+                                                Quality
+                                            </Typography>
+                                        </div>
+                                        <div className={classes.messageItem}>
+                                            <Typography className={classes.messageQ}>
+                                                In 1 or 2 sentences, tell us why you'd love to be in our company?
+                                            </Typography>
+                                            <Typography className={classes.messageA}>
+                                                Lorem lpsum
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                </Grid>
+                            </Grid>
+                          
+                        </div>
                     </CardContent>
                 </Card>
             </Grid>

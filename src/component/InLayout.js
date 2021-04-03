@@ -27,6 +27,8 @@ import { BrowserRouter, Route, Switch ,useLocation } from 'react-router-dom';
 import Dashboard from "../pages/Dashboard/Dashboard"
 import Application from "../pages/Application/Application"
 import Affliate from "../pages/Affliate/Affliate"
+import Gift from "../pages/Gift/Gift"
+
 import TestPage from "../pages/Testpage"
 
 const navWidth = 300;
@@ -212,6 +214,9 @@ const InLayout = (props) =>{
                 </Route>
                 <Route path="/affliate">
                     <Affliate/>
+                </Route>
+                <Route path="/gift">
+                    <Gift/>
                 </Route>
                 <Route path="/test">
                     <TestPage/>
