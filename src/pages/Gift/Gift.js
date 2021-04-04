@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme)=>({
         flexGrow: 1,
     },
     dBtn:{
-        marginLeft:theme.spacing(2)
+        marginLeft:theme.spacing(1)
     },
     panContent:{
 
@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme)=>({
     },
     giftImteInfoText:{
         marginLeft:theme.spacing(1)
+    },
+    titleTool:{
+        display:'flex'
     }
 }))
 const Gift = () =>{
@@ -119,38 +122,40 @@ const Gift = () =>{
                             <div className={classes.panTitle}>
                                 <Typography variant="h5">Gifts</Typography>
                                 <div className={classes.grow}/>
-                                <TextField
-                                    InputProps={{
-                                        startAdornment: (
-                                        <InputAdornment position="start">
-                                            <SearchIcon />
-                                        </InputAdornment>
-                                        ),
-                                    }}
-                                />
-                                {/* <TextField/> */}
-                                <Button 
-                                    aria-controls="fade-menu" 
-                                    aria-haspopup="true" 
-                                    onClick={handleNewClick}
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.dBtn}
-                                >
-                                    Create new gift
-                                </Button>
-                                <Menu
-                                    id="fade-menu"
-                                    anchorEl={anchorEl}
-                                    keepMounted
-                                    open={openNew}
-                                    onClose={handleNewClose}
-                                    TransitionComponent={Fade}
-                                >
-                                    <MenuItem onClick={handleNewClose}>Profile</MenuItem>
-                                    <MenuItem onClick={handleNewClose}>My account</MenuItem>
-                                    <MenuItem onClick={handleNewClose}>Logout</MenuItem>
-                                </Menu>
+                                <div className={classes.titleTool}>
+                                    <TextField
+                                        InputProps={{
+                                            startAdornment: (
+                                            <InputAdornment position="start">
+                                                <SearchIcon />
+                                            </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                    {/* <TextField/> */}
+                                    <Button 
+                                        aria-controls="fade-menu" 
+                                        aria-haspopup="true" 
+                                        onClick={handleNewClick}
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.dBtn}
+                                    >
+                                        Create new gift
+                                    </Button>
+                                    <Menu
+                                        id="fade-menu"
+                                        anchorEl={anchorEl}
+                                        keepMounted
+                                        open={openNew}
+                                        onClose={handleNewClose}
+                                        TransitionComponent={Fade}
+                                    >
+                                        <MenuItem onClick={handleNewClose}>Profile</MenuItem>
+                                        <MenuItem onClick={handleNewClose}>My account</MenuItem>
+                                        <MenuItem onClick={handleNewClose}>Logout</MenuItem>
+                                    </Menu>
+                                </div>
                             </div>
                             <div className={classes.panContent}>
                                 {[1,2,3].map((item)=>{

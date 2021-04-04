@@ -26,6 +26,7 @@ import { BrowserRouter, Route, Switch ,useLocation } from 'react-router-dom';
 
 import Dashboard from "../pages/Dashboard/Dashboard"
 import Application from "../pages/Application/Application"
+import Community from "../pages/Community/Community"
 import Affliate from "../pages/Affliate/Affliate"
 import Gift from "../pages/Gift/Gift"
 
@@ -211,6 +212,9 @@ const InLayout = (props) =>{
                 </Route>
                 <Route path="/application">
                     <Application/>
+                </Route>
+                <Route path="/community">
+                    <Community/>
                 </Route>
                 <Route path="/affliate">
                     <Affliate/>
