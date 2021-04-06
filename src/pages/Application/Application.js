@@ -22,7 +22,7 @@ import PageNavbarContent from '../../component/PageNavbarContent'
 const useStyles = makeStyles((theme)=>({
     
     greyBackground:{
-        backgroundColor:'rgb(238,242,246)'
+        //backgroundColor:'rgb(238,242,246)'
     },
     memberType:{
         paddingTop:theme.spacing(4)
@@ -32,13 +32,13 @@ const useStyles = makeStyles((theme)=>({
         alignItems: 'center',
         marginBottom:theme.spacing(1),
         '& .green':{
-            backgroundColor:'rgb(104,212,145)'
+            backgroundColor:theme.palette.green.color
         },
         '& .yellow':{
-            backgroundColor:'rgb(241,153,73)'
+            backgroundColor:theme.palette.yellow.color
         },
         '& .grey':{
-            backgroundColor:'rgb(204,213,223)'
+            backgroundColor:theme.palette.primary.main
         },
         '& p':{
             margin:'0px',
@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme)=>({
         marginRight:theme.spacing(2)
     },
     rightPan:{
-        padding:theme.spacing(3),
+       // padding:theme.spacing(3),
         [theme.breakpoints.up('lg')]: {
             display:'flex',   
         },
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme)=>({
         height:theme.spacing(10),
 
         borderRadius:'10px',
-        border:`5px solid ${theme.palette.secondary.dark}`,
+        border:`3px solid ${theme.palette.primary.main}`,
         textAlign:'center',
       
         cursor:'pointer',
@@ -86,16 +86,16 @@ const useStyles = makeStyles((theme)=>({
             margin:theme.spacing(1)
         },
         '& .green':{
-            color:'rgb(104,212,145)'
+            color:theme.palette.green.color
         },
         '& .grey':{
-            color:theme.palette.secondary.dark
-        },
-        '& .blue':{
             color:theme.palette.primary.main
         },
+        '& .blue':{
+            color:theme.palette.secondary.main
+        },
         '& .yellow':{
-            color:'rgb(241,153,73)'
+            color:theme.palette.yellow.color
         },
     },
     avatar:{
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme)=>({
     },
     imageBtn:{
         width: '100px',
-        backgroundColor: 'rgb(246,248,250)',
+        backgroundColor: theme.palette.pan.backgroundColor,
         textAlignLast: 'center',
         borderRadius:'15px',
         padding:theme.spacing(1),
@@ -134,7 +134,8 @@ const useStyles = makeStyles((theme)=>({
         paddingTop:theme.spacing(2)
     },
     follerInfo:{
-        backgroundColor: 'rgb(246,248,250)',
+        backgroundColor: theme.palette.pan.backgroundColor,
+
         borderRadius:'10px',
         padding:theme.spacing(2),
         textAlign:'center',
@@ -149,11 +150,12 @@ const useStyles = makeStyles((theme)=>({
         borderRadius:'10px',
         width:theme.spacing(25),
         height:theme.spacing(25),
-        backgroundColor:theme.palette.secondary.dark,
+        backgroundColor:theme.palette.primary.light,
         marginRight:theme.spacing(3)
     },
     messagePan:{
-        backgroundColor:'rgb(246,248,250)',
+        backgroundColor: theme.palette.pan.backgroundColor,
+
         padding:theme.spacing(3),
         borderRadius:'10px'
     },
@@ -161,10 +163,10 @@ const useStyles = makeStyles((theme)=>({
         marginBottom:theme.spacing(2)
     },
     messageQ:{
-        color:'black',
+        color:theme.palette.primary.dark,
     },
     messageA:{
-        color:theme.palette.secondary.dark,
+        color:theme.palette.primary.main,
     }
 }))
 
@@ -244,9 +246,9 @@ const Application = () =>{
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Card>
-                            <CardContent>
+                            {/* <CardContent> */}
                                 <PageNavbarContent data={pageNavListData}/>
-                            </CardContent>    
+                            {/* </CardContent>     */}
                         </Card>
                     </Grid>
                     <Grid item xs={12}>

@@ -29,7 +29,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme)=>({
     pan:{
-        padding:theme.spacing(3),
+    //    padding:theme.spacing(3),
 
     },
     panTitle:{
@@ -53,12 +53,7 @@ const useStyles = makeStyles((theme)=>({
     grow:{
         flexGrow: 1,
     },
-    table: {
-        minWidth: 650,
-        '& thead':{
-            backgroundColor:'rgb(246,248,250)'
-        }
-    },
+ 
     panInfo:{
         marginTop:theme.spacing(5)
     },
@@ -144,18 +139,18 @@ const Community = () =>{
                             />
                             <Button
                                 variant="outlined"
-                                color="primary"
+                                color="secondary"
                                 fullWidth
                             >
                                 Export
                             </Button>
                             <Button 
-                            fullWidth
+                                fullWidth
                                 aria-controls="fade-menu" 
                                 aria-haspopup="true" 
                                 onClick={handleDropDownClick}
                                 variant="outlined"
-                                color="primary"
+                                color="secondary"
                                 //className={classes.dBtn}
                             >
                                 {dropDownList[currentDropDown].text}
@@ -187,31 +182,20 @@ const Community = () =>{
                     </div>
                     <div className={classes.panInfo}>
                         <TableContainer component={Paper}>
-                            <Table className={classes.table} aria-label="simple table">
+                            <Table  aria-label="simple table">
                                 <TableHead>
+                                    
                                     <TableRow>
-                                        <TableCell align="center">MEMBER</TableCell>
-                                        <TableCell align="center">VERIFIED</TableCell>
-                                        <TableCell align="center">FOLLOWERS</TableCell>
-                                        <TableCell align="center">GIFTS</TableCell>
-                                        <TableCell align="center">AFFLIATE OFFERS</TableCell>
-                                        <TableCell align="center">TOTAL SALES</TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">MEMBER</Typography></TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">VERIFIED</Typography></TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">FOLLOWERS</Typography></TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">GIFTS</Typography></TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">AFFLIATE OFFERS</Typography></TableCell>
+                                        <TableCell align="center"><Typography variant="subtitle1">TOTAL SALES</Typography></TableCell>
                                     </TableRow>
+                                    
                                 </TableHead>
                                 <TableBody>
-                                    {
-                                        /*
-                                        id:2,
-                                        member_link:'/1.jpg',
-                                        member_name:'CenoPant',
-                                        member_sub_name:'ceno pant',
-                                        verified:0,
-                                        followers:165,
-                                        gifts:'gifts',
-                                        affilate_offer:'offer',
-                                        total_sales:0
-                                        */
-                                    }
                                 {tableRows.map((row) => (
                                     <TableRow key={row.id}>
                                     <TableCell align="center">

@@ -1,10 +1,11 @@
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import SettingsIcon from '@material-ui/icons/Settings';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 const routes = [
     {
         path:'/dashboard',
-        name:'Main',
+        name:'Dashboard',
         icon:<StarBorderIcon></StarBorderIcon>
     },
     {
@@ -35,5 +36,12 @@ const routes = [
     //     name:'Test',
     //     icon:<FavoriteBorderIcon></FavoriteBorderIcon>
     // },
+    {
+        path:'/setting',
+        name:'Setting',
+        hasborder:true,
+        icon:<MoreHorizIcon></MoreHorizIcon>
+    },
+
 ]
 export default routes

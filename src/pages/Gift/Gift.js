@@ -23,12 +23,26 @@ import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme)=>({
     rightPan:{
-        padding:theme.spacing(3),
+    //    padding:theme.spacing(3),
     },
     panTitle:{
-        display:'flex',
-        alignItems:'center'
+        alignItems:'center',
+        '& button':{
+            margin:theme.spacing(1)
+        },
+        '& .searchBox':{
+            margin:theme.spacing(1)
+        },
+        [theme.breakpoints.up('lg')]: {
+            display:'flex',
+        }
 
+    },
+    titleTool:{
+        //display:'flex',
+        [theme.breakpoints.up('md')]: {
+            display:'flex',
+        }
     },
     grow:{
         flexGrow: 1,
@@ -52,22 +66,35 @@ const useStyles = makeStyles((theme)=>({
     
     giftItemInfo:{
         display:'flex',
+        alignItems:'center'
     },
     giftItemInfoImg:{
-        width:theme.spacing(13),
-        height:theme.spacing(13),
+        margin:theme.spacing(2),
+        width:theme.spacing(10),
+        height:theme.spacing(10),
     },
     giftImteInfoText:{
         marginLeft:theme.spacing(1)
     },
     titleTool:{
         display:'flex'
-    }
+    },
+    itemTool:{
+        '& button':{
+            margin:theme.spacing(1)
+        }
+    },
+    smallBtn:{
+        padding:'0px'
+    },
+    
 }))
 const Gift = () =>{
     const [currentTab,setCurrentTab] = useState(0);
     const [anchorEl, setAnchorEl] = useState(null);
     const openNew = Boolean(anchorEl);
+    const theme = useTheme();
+
     const classes = useStyles();
 
     const pageNavListData = {
@@ -110,9 +137,9 @@ const Gift = () =>{
         <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
                 <Card>
-                    <CardContent>
+                    {/* <CardContent> */}
                         <PageNavbarContent data={pageNavListData}/>
-                    </CardContent>
+                    {/* </CardContent> */}
                 </Card>
             </Grid>
             <Grid item xs={12} md={9}>
@@ -131,18 +158,21 @@ const Gift = () =>{
                                             </InputAdornment>
                                             ),
                                         }}
+                                        placeholder="Search"
+                                        className="searchBox"
                                     />
                                     {/* <TextField/> */}
                                     <Button 
                                         aria-controls="fade-menu" 
                                         aria-haspopup="true" 
                                         onClick={handleNewClick}
-                                        variant="contained"
-                                        color="primary"
-                                        className={classes.dBtn}
+                                        variant="outlined"
+                                        color="secondary"
+                                        //className={classes.dBtn}
                                     >
                                         Create new gift
                                     </Button>
+                                    
                                     <Menu
                                         id="fade-menu"
                                         anchorEl={anchorEl}
@@ -161,19 +191,20 @@ const Gift = () =>{
                                 {[1,2,3].map((item)=>{
                                     return(
                                     <div className={classes.giftItem}>
-                                        <div>
+                                        <div className={classes.giftSubItem}>
                                             <Checkbox
-                                                color="primary"
+                                                color="secondary"
                                             ></Checkbox>
                                         </div>
+                                        
                                         <div className={classes.giftItemInfo}>
                                             <img src="/1.jpg" className={classes.giftItemInfoImg}/>
                                             <div className={classes.giftImteInfoText}>
-                                                <Typography variant="h6">Free</Typography>
-                                                <Typography variant="subtitle1">Sent 0 items</Typography>
+                                                <Typography variant="subtitle2">Free</Typography>
+                                                <Typography style={{color:`${theme.palette.primary.light}`}} variant="subtitle2">Sent 0 items</Typography>
                                                 <Button 
                                                     color="default"
-                                                    // className={classes.dBtn}
+                                                    className={classes.smallBtn}
                                                     // variant="contained"
                                                 >
                                                     1 products
@@ -181,24 +212,25 @@ const Gift = () =>{
                                             </div>
                                         </div>
                                         <div className={classes.grow}/>
-                                        <div>
+                                        <div className={classes.itemTool}>
                                             <Button 
-                                                color="primary"
-                                                className={classes.dBtn}
+                                                color="secondary"
+                                               // className={classes.dBtn}
                                                 variant="contained"
                                             >
                                                 Send this gift
                                             </Button>
-                                        </div>
-                                        <div>
                                             <Button 
-                                                color="default"
-                                                className={classes.dBtn}
-                                                variant="contained"
+                                                
+                                               // className={classes.dBtn}
+                                                variant="outlined"
+                                                color="secondary"
+                                
                                             >
                                                 Actions
                                             </Button>
                                         </div>
+                                        
                                     </div>
                                     )
                                     

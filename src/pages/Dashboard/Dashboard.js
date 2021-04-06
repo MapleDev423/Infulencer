@@ -27,7 +27,7 @@ import FollowerWidget from "./FollowerWidget"
 
 const useStyles = makeStyles((theme)=>({
     progressbar:{
-        background: 'linear-gradient(to right, #666fe7 2%, #a966e8  99%)'
+        backgroundColor: theme.palette.purple.color
     },
     progresInfo:{
         display:'flex',
@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme)=>({
     grow:{
         flexGrow: 1,
     },
+    arrowIcon:{
+        color:theme.palette.green.color
+    }
     
 }))
 const Dashboard = (props) =>{
@@ -57,16 +60,16 @@ const Dashboard = (props) =>{
                                         <MoreVertIcon color='primary'/>
                                     </IconButton>
                                     }
-                                    titleTypographyProps={{variant:'h5' }}
+                                    titleTypographyProps={{variant:'subtitle1' }}
                                     title="Total Visits"
-                                    subheaderTypographyProps={{variant:'subtitle2',color:'primary' }}
+                                    subheaderTypographyProps={{variant:'subtitle1',color:'primary' }}
                                     subheader="47%"
                                 />
                                 <CardContent>
                                     <div className={classes.progresInfo}>
-                                        <Typography variant='h5'>340</Typography>
-                                        <Typography variant='h5' color="secondary">
-                                            <ArrowUpwardIcon color='fourth' ></ArrowUpwardIcon>
+                                        <Typography variant='subtitle1'>340</Typography>
+                                        <Typography variant='h5'>
+                                            <ArrowUpwardIcon className={classes.arrowIcon}></ArrowUpwardIcon>
                                         </Typography>
                                     </div>
                                     <LinearProgress 
@@ -88,16 +91,16 @@ const Dashboard = (props) =>{
                                         <MoreVertIcon color='primary'/>
                                     </IconButton>
                                     }
-                                    titleTypographyProps={{variant:'h5' }}
+                                    titleTypographyProps={{variant:'subtitle1' }}
                                     title="Total Sales"
-                                    subheaderTypographyProps={{variant:'subtitle2',color:'primary' }}
+                                    subheaderTypographyProps={{variant:'subtitle1',color:'primary' }}
                                     subheader="47%"
                                 />
                                 <CardContent>
                                     <div className={classes.progresInfo}>
-                                        <Typography variant='h5'>$239.1</Typography>
+                                        <Typography variant='subtitle1'>$239.1</Typography>
                                         <Typography variant='h5' color="secondary">
-                                            <ArrowUpwardIcon color='fourth' ></ArrowUpwardIcon>
+                                            <ArrowUpwardIcon className={classes.arrowIcon} ></ArrowUpwardIcon>
                                         </Typography>
                                     </div>
                                     <LinearProgress 
@@ -119,16 +122,16 @@ const Dashboard = (props) =>{
                                         <MoreVertIcon color='primary'/>
                                     </IconButton>
                                     }
-                                    titleTypographyProps={{variant:'h5' }}
+                                    titleTypographyProps={{variant:'subtitle1' }}
                                     title="Total Applications"
-                                    subheaderTypographyProps={{variant:'subtitle2',color:'primary' }}
+                                    subheaderTypographyProps={{variant:'subtitle1',color:'primary' }}
                                     subheader="47%"
                                 />
                                 <CardContent>
                                     <div className={classes.progresInfo}>
-                                        <Typography variant='h5'>$239.1</Typography>
+                                        <Typography variant='subtitle1'>$239.1</Typography>
                                         <Typography variant='h5' color="secondary">
-                                            <ArrowUpwardIcon color='fourth' ></ArrowUpwardIcon>
+                                            <ArrowUpwardIcon className={classes.arrowIcon}></ArrowUpwardIcon>
                                         </Typography>
                                     </div>
                                     <LinearProgress 

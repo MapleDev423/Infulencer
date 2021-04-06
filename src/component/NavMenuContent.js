@@ -18,6 +18,7 @@ import routes from '../helpers/routes'
 const useStyles = makeStyles((theme)=>({
     content:{
         padding:theme.spacing(5),
+        paddingTop:theme.spacing(11),
         
     },
     category:{
@@ -56,16 +57,22 @@ const useStyles = makeStyles((theme)=>({
     menuItemContentActive:{
         marginBottom:theme.spacing(2),
         display:'flex',
+        color: theme.palette.purple.color,
+
         //color:theme.palette.primary.main,
-        borderRight:`3px solid ${theme.palette.primary.main}`,
-        '& p': {
-            color: theme.palette.primary.main
+        //borderRight:`3px solid ${theme.palette.primary.main}`,
+        '& h6': {
+            color: theme.palette.purple.color
         }
     },
  
     menuItemText:{
         marginLeft:theme.spacing(3),
         paddingBottom:'0px',
+    },
+    linkHasborder:{
+        borderTop: `1px solid ${theme.palette.primary.light}`,
+        margin: '-1px -40px 16px -40px'
     }
     
 }))
@@ -92,29 +99,51 @@ const NavMenuContent = () =>{
                     </div>
                 </div>
                 <div className={classes.category}>
-                    <Button className={classes.gradientButton} color="secondary" variant="contained"> View Page </Button>
+                    <Button color="primary" variant="contained"> View Page </Button>
                     <Button variant="outlined" color="primary"> Edit </Button>
                 </div>
                 <div className={classes.category}>
                     <div className={classes.categoryContent}>
                         <Typography color="primary" className={classes.categoryTitle}>
-                            DASHBOARD
+                            MAIN
                         </Typography>
                         {routes.map((route,index)=>{
-                            return(
-                                <Link key={index} to={route.path} className={classes.menuItem}>
-                                    <div className={
-                                        route.path == location.pathname ? 
-                                            classes.menuItemContentActive : 
-                                            classes.menuItemContent}>
-
-                                            {route.icon}
-                                        <Typography className={classes.menuItemText}>
-                                            {route.name}
-                                        </Typography>
+                            if(route.hasborder){
+                                return(
+                                    <div>
+                                    <div className={classes.linkHasborder}/>
+                                    <Link key={index} to={route.path} className={classes.menuItem}>
+                                        <div className={
+                                            route.path == location.pathname ? 
+                                                classes.menuItemContentActive : 
+                                                classes.menuItemContent}>
+    
+                                                {route.icon}
+                                            <Typography variant="subtitle1" className={classes.menuItemText}>
+                                                {route.name}
+                                            </Typography>
+                                        </div>
+                                    </Link>
                                     </div>
-                                </Link>
-                            )
+                                )
+                            }else
+                            {
+                                return(
+                                    <Link key={index} to={route.path} className={classes.menuItem}>
+                                        <div className={
+                                            route.path == location.pathname ? 
+                                                classes.menuItemContentActive : 
+                                                classes.menuItemContent}>
+    
+                                                {route.icon}
+                                            <Typography variant="subtitle1" className={classes.menuItemText}>
+                                                {route.name}
+                                            </Typography>
+                                        </div>
+                                    </Link>
+                                )
+                            }
+                            
                         })}
                     </div>
                 </div>

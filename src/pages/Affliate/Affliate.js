@@ -27,7 +27,7 @@ import {Line} from 'react-chartjs-2';
 
 const useStyles = makeStyles((theme)=>({
     rightPan:{
-        padding:theme.spacing(3),
+   //     padding:theme.spacing(3),
     },
     panTitle:{
         display:'flex',
@@ -52,12 +52,7 @@ const useStyles = makeStyles((theme)=>({
     tablePart:{
         marginTop:theme.spacing(5)
     },
-    table: {
-        minWidth: 650,
-        '& thead':{
-            backgroundColor:'rgb(246,248,250)'
-        }
-    },
+   
 }))
 const dateType = [
     {
@@ -195,10 +190,10 @@ const Affliate = () =>{
         <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
                 <Card>
-                    <CardContent>
+                    {/* <CardContent> */}
                         <PageNavbarContent data={pageNavListData}/>
 
-                    </CardContent>
+                    {/* </CardContent> */}
                 </Card>
             </Grid>
             <Grid item xs={12} md={9}>
@@ -213,7 +208,7 @@ const Affliate = () =>{
                                     aria-haspopup="true" 
                                     onClick={handleDropdownClick}
                                     variant="outlined"
-                                    color="primary"
+                                    color="secondary"
                                     //className={classes.dBtn}
                                 >
                                     {dateType[currentDayType].text}
@@ -280,16 +275,16 @@ const Affliate = () =>{
                                     <div className={classes.tablePart}>
                                         <Typography>{tableRows.length} conversions</Typography>
                                         <TableContainer component={Paper}>
-                                            <Table className={classes.table} aria-label="simple table">
+                                            <Table aria-label="simple table">
                                                 <TableHead>
                                                     <TableRow>
-                                                        <TableCell>ORDER</TableCell>
-                                                        <TableCell align="right">ORDER DATE</TableCell>
-                                                        <TableCell align="right">ORDER TOTAL</TableCell>
-                                                        <TableCell align="right">MEMBER</TableCell>
-                                                        <TableCell align="right">CODE/LINK</TableCell>
-                                                        <TableCell align="right">COMMISSION</TableCell>
-                                                        <TableCell align="right">PAYMENT</TableCell>
+                                                        <TableCell><Typography variant="subtitle1">ORDER</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">ORDER DATE</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">ORDER TOTAL</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">MEMBER</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">CODE/LINK</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">COMMISSION</Typography></TableCell>
+                                                        <TableCell align="right"><Typography variant="subtitle1">PAYMENT</Typography></TableCell>
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>

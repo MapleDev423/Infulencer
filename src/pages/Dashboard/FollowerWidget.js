@@ -17,11 +17,8 @@ import { grey, deepPurple, amber,teal } from '@material-ui/core/colors';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-const chartColors = [
-    deepPurple[500],
-    "rgba(75,192,192,1)",
-    "#00f",
-  ];
+
+
 const useStyles = makeStyles((theme)=>({
     progresInfo:{
         display:'flex',
@@ -40,8 +37,16 @@ const useStyles = makeStyles((theme)=>({
     grow:{
         flexGrow: 1,
     },
+    
+    arrowIcon:{
+        color:theme.palette.green.color
+    },
+    cardContent:{
+        margin:-theme.spacing(2),
+        borderTop:'1px solid rgba(0,0,0,0.2)'
+    },
     followerList:{
-
+        margin:-theme.spacing(2)
     },
     
     followerListItem:{
@@ -62,33 +67,35 @@ const useStyles = makeStyles((theme)=>({
     }
 }))
 
-const data = {
-    maintainAspectRatio: false,
-    responsive: false,
-    labels: ["Youtube", "Instagram", "Tiktok"],
-    datasets: [
-        {
-            data: [123900, 130000, 42000 ],
-            backgroundColor: chartColors,
-            borderColor:'white',
-            hoverBackgroundColor: chartColors,
-            borderWidth:5,
-            //weight:1500,
-            cutoutPercentage:60
-        },
-    ]
-  };
+
 const FollowerWidget  = () =>{
     const classes = useStyles();
+    const theme = useTheme();
 
+    const chartColors = [
+        theme.palette.blue.color,
+        theme.palette.purple.color,
+        theme.palette.green.color,
+    ];
+    const data = {
+        maintainAspectRatio: false,
+        responsive: false,
+        labels: ["Youtube", "Instagram", "Tiktok"],
+        datasets: [
+            {
+                data: [123900, 130000, 42000 ],
+                backgroundColor: chartColors,
+                borderColor:'white',
+                hoverBackgroundColor: chartColors,
+                borderWidth:1,
+                //weight:1500,
+                cutoutPercentage:60
+            },
+        ]
+      };
     return(
         <Card>
             <CardHeader
-                avatar={
-                    <Avatar aria-label="recipe" className={classes.avatar}>
-                    
-                    </Avatar>
-                }
                 action={
                 <IconButton aria-label="settings">
                     <MoreVertIcon color='primary'/>
@@ -96,18 +103,15 @@ const FollowerWidget  = () =>{
                 }
                 titleTypographyProps={{variant:'subtitle1' }}
                 title="Total Followers"
-                subheaderTypographyProps={{variant:'subtitle2',color:'primary' }}
-                subheader="47%"
             />
-            <CardContent>
+            <CardContent className={classes.cardContent}>
+                
                 <div className={classes.progresInfo}>
                     <div>
-                    <Typography variant='h4'>5.8M</Typography>
-                    <Typography variant='caption' color="secondary">Total Followers</Typography>
+                    <Typography variant='h4'>5.8M<ArrowUpwardIcon className={classes.arrowIcon} ></ArrowUpwardIcon></Typography>
+                    <Typography variant='subtitle2' color="primary">Total Followers</Typography>
                     </div>
-                    <Typography variant='h5' color="primary">
-                        <ArrowUpwardIcon color='secondary' ></ArrowUpwardIcon>
-                    </Typography>
+                  
                 </div>
                 
                 <div className={classes.content}>

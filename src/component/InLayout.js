@@ -12,14 +12,19 @@ import {
   Grid,
   Hidden,
   Drawer,
-  Badge
+  Badge,
+  InputAdornment,
+  TextField,
 } from "@material-ui/core"
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+
 import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import SearchIcon from '@material-ui/icons/Search';
+
 import NavMenuContent from './NavMenuContent'
 
 import { BrowserRouter, Route, Switch ,useLocation } from 'react-router-dom';
@@ -74,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
       '& a':{
         marginRight:theme.spacing(4),
         textDecoration: 'none',
-        color:'black',
+        color:theme.palette.primary.dark,
 
       }
     },
@@ -84,7 +89,36 @@ const useStyles = makeStyles((theme) => ({
         display: 'none',
       },
     },
-    toolbar: theme.mixins.toolbar,
+//    toolbar: theme.mixins.toolbar,
+    toolbar: {
+      height:'65px',
+      borderBottom:'1px solid rgba(0, 0, 0, 0.12)',
+      justifyContent:'center',
+      alignItems:'center',
+      
+      textAlign:'center',
+      display:'flex',
+      position:'fixed',
+    },
+    contentTop:{
+      width:'100%',
+      [theme.breakpoints.up('md')]: {
+      width:'calc(100% - 300px)'
+      }
+    },
+    menuTop:{
+      width:'300px'
+    },
+    globalSearch:{
+      '& *':{
+        border:'0px solid white',
+      },
+      '& .Mui-focused':{
+        border:'0px solid white',
+      },
+      width:'100%'
+
+    },
     navMenu: {
       [theme.breakpoints.up('md')]: {
         width: navWidth,
@@ -93,18 +127,21 @@ const useStyles = makeStyles((theme) => ({
     },
     navMenuContent: {
       width: navWidth,
-      top:'65px',
-      [theme.breakpoints.down('sm')]: {
-        top:'0px'
+      
+      //top:'65px',
+      [theme.breakpoints.up('md')]: {
+        boxShadow:'0px 0px 15px 10px #ececec',  
       },
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
-      //paddingBottom:'70px',
-      backgroundColor:'rgba(222, 222, 222, 255)',
       height:'100vh',
       position:'relative'
+    },
+    mainContent:{
+      padding:theme.spacing(3),
+      paddingTop:theme.spacing(11),
+      
     },
     footer:{
 
@@ -136,39 +173,7 @@ const InLayout = (props) =>{
 
     return(
         <div className={classes.root}>
-          <AppBar position="fixed" className={classes.topMenu}>
-            <Toolbar className={classes.topMenuToolbar}>
-              <img src="/img/logo.png" className={classes.logo}></img>
-              {/* <Typography variant="h6">
-                News
-              </Typography> */}
-              
-              <div className={classes.grow}/>
-              <div className={classes.topMenuToolLeftDesktop}>
-                <IconButton 
-                  edge="start" 
-                  color="inherit" 
-                  aria-label="menu"
-                  color="primary"
-                  className={classes.trayButton}
-                  onClick={handleDrawerToggle}
-                >
-                  <MenuIcon variant="outlined"/>
-                  
-                </IconButton>
-                <IconButton aria-label="show 4 new mails" color="third">
-                  <Badge badgeContent={4} color="primary">
-                    <MailIcon />
-                  </Badge>
-                </IconButton>
-                <IconButton aria-label="show 17 new notifications" color="third">
-                  <Badge badgeContent={17} color="primary">
-                    <NotificationsIcon />
-                  </Badge>
-                </IconButton>
-              </div>
-            </Toolbar>
-          </AppBar>
+ 
           <nav className={classes.navMenu}>
             <Hidden mdUp>
               {/* <>123</> */}
@@ -187,6 +192,9 @@ const InLayout = (props) =>{
                   keepMounted: true, 
                 }}
               >
+                <div className={classes.toolbar + ' ' + classes.menuTop}>
+                  <img src="/img/logo.png" className={classes.logo}></img>  
+                </div>
                 <NavMenuContent/>
               </Drawer>
             </Hidden>
@@ -199,58 +207,101 @@ const InLayout = (props) =>{
                 variant="permanent"
                 open
               >
+                <div className={classes.toolbar + ' ' + classes.menuTop}>
+                  <img src="/img/logo.png" className={classes.logo}></img>
+                </div>
                 <NavMenuContent/>
               </Drawer>
             </Hidden>
           </nav>
 
           <main className={classes.content}>
-            <div className={classes.toolbar} />
-            <Switch>
-                <Route path="/dashboard">
-                    <Dashboard/>
-                </Route>
-                <Route path="/application">
-                    <Application/>
-                </Route>
-                <Route path="/community">
-                    <Community/>
-                </Route>
-                <Route path="/affliate">
-                    <Affliate/>
-                </Route>
-                <Route path="/gift">
-                    <Gift/>
-                </Route>
-                <Route path="/test">
-                    <TestPage/>
-                </Route>
-                <Route path="/">
-                    <Dashboard/>
-                </Route>
-            </Switch>
-            <div className={classes.toolbar} />
 
+            <div className={classes.toolbar + ' ' + classes.contentTop}>
+              <TextField
+                  InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                  //variant="filled"
+                  className={classes.globalSearch}
+                  placeholder="Global Search"
+              />
+              {/* <div className={classes.grow}/> */}
+              <div className={classes.topMenuToolLeftDesktop}>
+                <IconButton 
+                  edge="start" 
+                  color="inherit" 
+                  aria-label="menu"
+                  color="primary"
+                  className={classes.trayButton}
+                  onClick={handleDrawerToggle}
+                >
+                  <MenuIcon variant="outlined"/>
+                  
+                </IconButton>
+                <IconButton aria-label="show 4 new mails" color="third">
+                  <Badge badgeContent={4} color="primary" >
+                    <MailOutlineIcon/>
+                  </Badge>
+                </IconButton>
+                <IconButton aria-label="show 17 new notifications" color="third">
+                  <Badge badgeContent={17} color="primary">
+                    <NotificationsNoneIcon />
+                  </Badge>
+                </IconButton>
+              </div>
+            </div>
+            <div className={classes.mainContent}>
+              <Switch>
+                  <Route path="/dashboard">
+                      <Dashboard/>
+                  </Route>
+                  <Route path="/application">
+                      <Application/>
+                  </Route>
+                  <Route path="/community">
+                      <Community/>
+                  </Route>
+                  <Route path="/affliate">
+                      <Affliate/>
+                  </Route>
+                  <Route path="/gift">
+                      <Gift/>
+                  </Route>
+                  <Route path="/test">
+                      <TestPage/>
+                  </Route>
+                  <Route path="/">
+                      <Dashboard/>
+                  </Route>
+              </Switch>
+              <div className={classes.toolbar} />
+            </div>
+            
           </main>
           <div className={classes.footer}>
-          <AppBar position="fixed" className={classes.bottomMenu}>
-            <Toolbar className={classes.bottomMenuToolbar}>
-                <Grid container>
-                  <Grid item md={6} xs={0}>
-                  </Grid>
-                  <Grid item md={6} xs={12}>
-                    <div className={classes.bottomMenuContent}>
-                      <a href="/dashboard"><FacebookIcon variant="outlined"></FacebookIcon></a>
-                      <a href="/dashboard"><TwitterIcon></TwitterIcon></a>
+            <AppBar position="fixed" className={classes.bottomMenu}>
+              <Toolbar className={classes.bottomMenuToolbar}>
+                  <Grid container>
+                    <Grid item md={6} xs={0}>
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                      <div className={classes.bottomMenuContent}>
+                        <a href="/dashboard"><Typography variant="subtitle1"><FacebookIcon variant="outlined"></FacebookIcon></Typography></a>
+                        <a href="/dashboard"><Typography variant="subtitle1"><TwitterIcon></TwitterIcon></Typography></a>
 
-                      <a href="/dashboard">Conact Us</a>
-                      <a href="/dashboard">Terms</a>
-                      <a href="/dashboard">Privacy</a>
-                    </div>
+                        <a href="/dashboard"><Typography variant="subtitle1">Conact Us</Typography></a>
+                        <a href="/dashboard"><Typography variant="subtitle1">Terms</Typography></a>
+                        <a href="/dashboard"><Typography variant="subtitle1">Privacy</Typography></a>
+                      </div>
+                    </Grid>
                   </Grid>
-                </Grid>
-            </Toolbar>
-          </AppBar>
+              </Toolbar>
+            </AppBar>
           </div>
         </div>
     )

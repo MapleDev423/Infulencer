@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme)=>({
     },
     listItemDivider:{
         height: '5px',
-        backgroundColor: 'rgb(222,222,222)',
+        backgroundColor: 'rgb(245,245,245)',
         marginLeft: '-20px',
         marginRight: '-20px',
         marginBottom:'15px',
@@ -67,7 +67,7 @@ const PageNavbarContent = (props) =>{
                     return(
                         <div className={itemClass} onClick={item.action}>
                             <Typography className={classes.listItemAvatar}>{item.avatar}</Typography>
-                            <Typography>{item.text}</Typography>
+                            <Typography variant="subtitle1">{item.text}</Typography>
                             <div className={classes.grow}/>
                             {item.number && (
                                 <Typography>{item.number}</Typography>
