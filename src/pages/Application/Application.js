@@ -101,7 +101,11 @@ const useStyles = makeStyles((theme)=>({
     avatar:{
         width:theme.spacing(12),
         height:theme.spacing(12),
-        marginRight:theme.spacing(3)
+        marginRight:theme.spacing(3),
+        borderRadius:'50%'
+    },
+    avatarSelect:{
+        cursor:'pointer'
     },
     rightPanInfo:{
         [theme.breakpoints.up('lg')]: {
@@ -151,7 +155,14 @@ const useStyles = makeStyles((theme)=>({
         width:theme.spacing(25),
         height:theme.spacing(25),
         backgroundColor:theme.palette.primary.light,
-        marginRight:theme.spacing(3)
+        marginRight:theme.spacing(3),
+        cursor:'pointer'
+    },
+    imagePanImage:{
+        width:'100%',
+        height:'100%',
+        borderRadius:'10px',
+
     },
     messagePan:{
         backgroundColor: theme.palette.pan.backgroundColor,
@@ -173,6 +184,10 @@ const useStyles = makeStyles((theme)=>({
 const Application = () =>{
     const classes = useStyles();
     const [currentTab,setCurrentTab] = useState(0)
+    const [image1,setImage1]=useState('/img/image.png')
+    const [image2,setImage2]=useState('/img/image.png')
+    const [avatarImage,setAvatarImage]=useState('/1.jpg')
+
     useEffect(()=>{
         //alert('asdf')
         console.log(currentTab)
@@ -240,6 +255,20 @@ const Application = () =>{
         ],
         currentTab:currentTab
 }
+    const setImage = (e,type) =>{
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            if(type == 0)
+                setAvatarImage(e.target.result);
+            else if(type == 1)
+                setImage1(e.target.result);    
+            else if(type == 2)
+                setImage2(e.target.result);    
+        };
+
+        reader.readAsDataURL(e.target.files[0]);
+    }
     return(
         <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={3}>
@@ -313,13 +342,19 @@ const Application = () =>{
                             <Grid container className={classes.rightPanInfo}>
                                 <Grid item xs={12} className={classes.rightPanRow}>
                                     <div className={classes.rightpanInfoName}>
-                                        <Avatar alt="Remy Sharp" src="/1.jpg" className={classes.avatar} />
+                                        
+                                        <img className={classes.avatar} src={avatarImage}></img>
+                                       
                                         <Typography variant="h5">Ceno Pant</Typography>
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} className={classes.rightPanRow}>
                                     <div className={classes.imageBtn}>
+                                    <label htmlFor="avatar" className={classes.avatarSelect}>
+                                        <input style={{display:'none'}} id="avatar" type='file' name='avatar' onChange={(e)=>{setImage(e,0)}}/>
                                         <Typography variant="subtitle">cenopant</Typography>
+                                    </label>
+
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} className={classes.rightPanRow}>
@@ -346,10 +381,20 @@ const Application = () =>{
                                 </Grid>
                                 <Grid item xs={12} className={classes.rightPanRow}>
                                     <div className={classes.imagePan}>
-                                        <div className={classes.imagePanItem}>
-                                        </div>
-                                        <div className={classes.imagePanItem}>
-                                        </div>
+                                        <label htmlFor="imagepan1" className={classes.imagePanItem}>
+                                            <input style={{display:'none'}} id="imagepan1" type='file' name='imagepan1' onChange={(e)=>{setImage(e,1)}}/>
+                                            <img className={classes.imagePanImage} src={image1}></img>
+                                        </label>
+                                    <div className={classes.imagePanItem}>
+                                        <label htmlFor="imagepan2" className={classes.imagePanItem}>
+                                            <input style={{display:'none'}} id="imagepan2" type='file' name='imagepan2' onChange={(e)=>{setImage(e,2)}}/>
+                                            <img className={classes.imagePanImage} src={image2}></img>
+                                        </label>
+                                    </div>
+                                        {/* <input style={{display:'none'}} id="avatar" type='file' name='avatar' onChange={setImage}/> */}
+
+                                     
+
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} className={classes.rightPanRow}>
