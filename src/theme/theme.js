@@ -73,16 +73,35 @@ theme.overrides = {
       fontWeight:600,
       paddingBottom:theme.spacing(1)
     },
+    h4:{
+      fontSize:'24px'
+
+    },
+    h5:{
+      fontSize:'18px'
+    },
+    body1:{
+      fontSize:'14px'
+    },
     subtitle1:{
    //   fontWeight:'bold',
-      fontSize:'15px'
+      fontSize:'12px'
     },
+    subtitle2:{
+      //   fontWeight:'bold',
+         fontSize:'10px'
+       },
     body1:{
       fontWeight:'500',
     },
     colorPrimary:{
       color:theme.palette.primary.dark,
 
+    }
+  },
+  MuiTouchRipple:{
+    root:{
+      fontSize:'12px'
     }
   },
   MuiButton: {
@@ -130,15 +149,26 @@ theme.overrides = {
     },
     containedThird:{
       color:'white'
+    },
+    label:{
+    fontSize:'12px'
+
     }
   },
-  MuiButtonLabel:{
-    fontWeight:'500'
+  // MuiButtonLabel:{
+  //   fontWeight:'500',
+  //   fontSize:'12px'
+  // },
+  MuiInputBase:{
+    input:{
+    fontSize:'12px'
+
+    }
   },
   MuiInputLabel: {
     root: {
       textTransform: 'uppercase',
-      fontSize: '1.5rem',
+      fontSize: '1rem',
     },
   },
   MuiInput: {
@@ -216,6 +246,11 @@ theme.overrides = {
           paddingTop:theme.spacing(1),
           paddingBottom:theme.spacing(1),
       }
+    }
+  },
+  MuiTableCell:{
+    root:{
+      fontSize:'12px'
     }
   },
   MuiTableBody:{

@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor:'white'
     },
     topMenuToolbar:{
-      minHeight:'64px'
+      minHeight:'45px'
     },
     grow: {
       flexGrow: 1,
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     bottomMenuToolbar:{
-      minHeight:'64px'
+      minHeight:'45px'
     },
     bottomMenuContent:{
       display:'flex',
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
     },
 //    toolbar: theme.mixins.toolbar,
     toolbar: {
-      height:'65px',
+      height:'46px',
       borderBottom:'1px solid rgba(0, 0, 0, 0.12)',
       justifyContent:'center',
       alignItems:'center',
@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
       //height:'100vh',
       position:'relative',
-      paddingBottom:'64px'
+      paddingBottom:'46px'
       //backgroundColor:'#e5e5e5'
     },
     mainContent:{

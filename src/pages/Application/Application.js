@@ -78,6 +78,9 @@ const useStyles = makeStyles((theme)=>({
             //border:`5px solid ${theme.palette.primary.main}`,
         },
         marginBottom:theme.spacing(3),
+        '& h6':{
+            marginTop:theme.spacing(1),
+        },
         padding:'10px 5px 5px 5px',
         '& p':{
             marginTop:'0px'
@@ -174,11 +177,11 @@ const useStyles = makeStyles((theme)=>({
         marginBottom:theme.spacing(1)
     },
     messageQ:{
-        fontSize:'14px',
+        fontSize:'12px',
         color:theme.palette.primary.dark,
     },
     messageA:{
-        fontSize:'14px',
+        fontSize:'12px',
         color:theme.palette.primary.main,
     }
 }))
@@ -285,7 +288,7 @@ const Application = () =>{
                     <Grid item xs={12}>
                         <Card className={classes.greyBackground}>
                             <CardContent>
-                                <Typography>0 / 5 members</Typography>  
+                                <Typography variant="subtitle1">0 / 5 members</Typography>  
                                 <div>UnknownProgrss</div>  
                                 <div className={classes.memberType}>
                                     <div className={classes.memberItem}>

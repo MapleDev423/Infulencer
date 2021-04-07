@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme)=>({
     display:'flex',
     marginRight:theme.spacing(3),
     alignItems:'center',
+    fontSize:'12px',
     '& span':{
         fontWeight:'500',
       opacity:'.5'
@@ -60,8 +61,8 @@ const useStyles = makeStyles((theme)=>({
   chartPart:{
       //padding:'0px 80px 0px 80px'
       //paddingTop:theme.spacing(3),
-      paddingLeft:theme.spacing(10),
-      paddingRight:theme.spacing(10),
+    //  paddingLeft:theme.spacing(10),
+    //  paddingRight:theme.spacing(10),
 
   }
 }))
