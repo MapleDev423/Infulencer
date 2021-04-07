@@ -75,6 +75,7 @@ theme.overrides = {
     },
     subtitle1:{
    //   fontWeight:'bold',
+      fontSize:'15px'
     },
     body1:{
       fontWeight:'500',

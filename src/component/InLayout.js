@@ -95,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
       borderBottom:'1px solid rgba(0, 0, 0, 0.12)',
       justifyContent:'center',
       alignItems:'center',
+      backgroundColor:'white',
       
       textAlign:'center',
       display:'flex',
@@ -135,8 +136,10 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
       flexGrow: 1,
-      height:'100vh',
-      position:'relative'
+      //height:'100vh',
+      position:'relative',
+      paddingBottom:'64px'
+      //backgroundColor:'#e5e5e5'
     },
     mainContent:{
       padding:theme.spacing(3),

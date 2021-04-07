@@ -152,8 +152,8 @@ const useStyles = makeStyles((theme)=>({
     },
     imagePanItem:{
         borderRadius:'10px',
-        width:theme.spacing(25),
-        height:theme.spacing(25),
+        width:theme.spacing(20),
+        height:theme.spacing(20),
         backgroundColor:theme.palette.primary.light,
         marginRight:theme.spacing(3),
         cursor:'pointer'
@@ -167,16 +167,18 @@ const useStyles = makeStyles((theme)=>({
     messagePan:{
         backgroundColor: theme.palette.pan.backgroundColor,
 
-        padding:theme.spacing(3),
+        padding:theme.spacing(2),
         borderRadius:'10px'
     },
     messageItem:{
-        marginBottom:theme.spacing(2)
+        marginBottom:theme.spacing(1)
     },
     messageQ:{
+        fontSize:'14px',
         color:theme.palette.primary.dark,
     },
     messageA:{
+        fontSize:'14px',
         color:theme.palette.primary.main,
     }
 }))
@@ -289,17 +291,17 @@ const Application = () =>{
                                     <div className={classes.memberItem}>
                                         <div className={classes.memberItemLight + ' ' + 'green'}>
                                         </div>
-                                        <Typography>Active members</Typography>
+                                        <Typography variant="subtitle1">Active members</Typography>
                                     </div>
                                     <div className={classes.memberItem}>
                                         <div className={classes.memberItemLight + ' ' + 'yellow'}>
                                         </div>
-                                        <Typography>Invited members</Typography>
+                                        <Typography variant="subtitle1">Invited members</Typography>
                                     </div>
                                     <div className={classes.memberItem}>
                                         <div className={classes.memberItemLight + ' ' + 'grey'}>
                                         </div>
-                                        <Typography>Open spaces</Typography>
+                                        <Typography variant="subtitle1">Open spaces</Typography>
                                     </div>
                                 </div>
                             </CardContent>

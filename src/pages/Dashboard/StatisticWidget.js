@@ -14,7 +14,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme)=>({
   customCardHeader:{
       display:'flex',
-      marginBottom:theme.spacing(3)
+      marginBottom:theme.spacing(1)
   },
   customCardHeaderTab:{
       marginLeft:theme.spacing(2),
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme)=>({
   },
   typeRow:{
       display:'flex',
-      marginTop:theme.spacing(2),
+      //marginTop:theme.spacing(2),
   },
   typeItem:{
     display:'flex',
@@ -56,6 +56,13 @@ const useStyles = makeStyles((theme)=>({
       height:theme.spacing(2),
       borderRadius:'50%',
       marginRight:theme.spacing(1)
+  },
+  chartPart:{
+      //padding:'0px 80px 0px 80px'
+      //paddingTop:theme.spacing(3),
+      paddingLeft:theme.spacing(10),
+      paddingRight:theme.spacing(10),
+
   }
 }))
 
@@ -106,7 +113,7 @@ const StatisticWidget = () =>{
         pointHoverBorderWidth: 2,
         pointRadius: 4,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 60,88,53,54,86,54]
+        data: [65, 59, 55, 66, 56, 55, 60,64,53,54,45,54]
       },
       {
         label: 'Visits',
@@ -128,7 +135,7 @@ const StatisticWidget = () =>{
         pointHoverBorderWidth: 2,
         pointRadius: 4,
         pointHitRadius: 10,
-        data: [45, 49, 60, 32, 36, 45, 40,58,43,34,36,34]
+        data: [45, 49, 60, 50, 55, 45, 40,58,43,48,53,46]
       }
     ]
   };
@@ -175,7 +182,9 @@ const StatisticWidget = () =>{
                         <span>SALES</span>
                     </div>
                 </div>
-                <Line data={data} />
+                <div className={classes.chartPart}>
+                <Line data={data} /* options={{ maintainAspectRatio: false }}*/ />
+                </div>
             </CardContent>
         </Card>
     )
