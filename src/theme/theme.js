@@ -206,6 +206,15 @@ theme.overrides = {
   MuiCardHeader:{
     titleTypographyProps: {
       variant:'h6'
+    },
+    root:{
+      padding:theme.spacing(1)
+    }
+  },
+  MuiCardContent:{
+    root:{
+      padding:theme.spacing(1)
+
     }
   },
   MuiPaper:{

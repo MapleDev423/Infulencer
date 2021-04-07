@@ -43,7 +43,11 @@ const useStyles = makeStyles((theme)=>({
     },
     cardContent:{
         margin:-theme.spacing(2),
-        borderTop:'1px solid rgba(0,0,0,0.2)'
+        marginTop:'0px',
+        borderTop:'1px solid rgba(0,0,0,0.2)',
+        paddingLeft:theme.spacing(3),
+        paddingRight:theme.spacing(3),
+
     },
     followerList:{
         margin:-theme.spacing(2)
@@ -103,6 +107,8 @@ const FollowerWidget  = () =>{
                 }
                 titleTypographyProps={{variant:'subtitle1' }}
                 title="Total Followers"
+                subheaderTypographyProps={{variant:'subtitle1',color:'primary' }}
+                subheader=""
             />
             <CardContent className={classes.cardContent}>
                 

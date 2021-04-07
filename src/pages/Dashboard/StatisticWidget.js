@@ -184,7 +184,7 @@ const StatisticWidget = () =>{
                     </div>
                 </div>
                 <div className={classes.chartPart}>
-                <Line data={data} /* options={{ maintainAspectRatio: false }}*/ />
+                <Line data={data} height={400} options={{ maintainAspectRatio: false }} />
                 </div>
             </CardContent>
         </Card>
